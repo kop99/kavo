@@ -642,4 +642,15 @@ end)
 Tab3Section:NewButton("keyboard", "og", function()loadstring(game:HttpGet("https://scriptblox.com/raw/Free-Owner-Admin-Abuse-Keyboard-Script-7798"))()
 end)
 
+Tab1Section:NewButton("op lock", "ogggg", function()
+local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
+local Notify = AkaliNotif.Notify;
+Notify({
+Description = "90";
+Title = "c6_4";
+Duration = 15;
+});
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Ryzzchips/MOON-GOD-SCRIPTS/main/Ryzzchips%20tool"))();
+end)
 
