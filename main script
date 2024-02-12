@@ -11,6 +11,9 @@ local Tab = Window:NewTab("others games")
 local Tab3Section = Tab:NewSection("Other games")
 local Tab = Window:NewTab("admins")
 local Tab4Section = Tab:NewSection("Troll Scripts")
+local Tab = Window:NewTab("Settings")
+local Tab1Section = Tab:NewSection("Settings")
+
 
 -- Buttons/Windows/Idk
 
@@ -621,4 +624,8 @@ Tab2Section:NewButton("vape v4", "OP ASF", function()loadstring(game:HttpGet("ht
 end)
 
 Tab2Section:NewButton("SkidPloit", "shitty", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/AlSploit/AlSploit/main/MainScript"))()
+end)
+
+Tab5Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.C, function()
+    Library:ToggleUI()
 end)
