@@ -658,6 +658,7 @@ Tab5Section:NewTextBox("Nobody has this script expect me", "TextboxInfo", functi
 end)
 
 Tab1Section:NewButton("dahood RYZZCHIPS BEST LOCK EVER", "Ryzz chips", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/Ryzzchips/MOON-GOD-SCRIPTS/main/Ryzzchips%20tool"))();
+end)
 
 
 
