@@ -643,18 +643,3 @@ Tab3Section:NewButton("keyboard", "og", function()loadstring(game:HttpGet("https
 end)
 
 
-Tab5Section:NewTextBox("my discord is c6_4", "TextboxInfo", function(txt)
-	print(txt)
-end)
-
-Tab5Section:NewTextBox("THIS IS IN BETA", "TextboxInfo", function(txt)
-	print(txt)
-end)
-
-Tab5Section:NewTextBox("Nobody has this script expect me", "TextboxInfo", function(txt)
-	print(txt)
-end)
-
-
-
-
