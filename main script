@@ -12,7 +12,7 @@ local Tab3Section = Tab:NewSection("Other games")
 local Tab = Window:NewTab("admins")
 local Tab4Section = Tab:NewSection("Troll Scripts")
 local Tab = Window:NewTab("Settings")
-local Tab1Section = Tab:NewSection("Settings")
+local Tab5Section = Tab:NewSection("Settings")
 
 
 -- Buttons/Windows/Idk
