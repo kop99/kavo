@@ -641,9 +641,7 @@ end)
 
 Tab3Section:NewButton("keyboard", "og", function()loadstring(game:HttpGet("https://scriptblox.com/raw/Free-Owner-Admin-Abuse-Keyboard-Script-7798"))()
 end)
-Tab3Section:NewButton("HoHo Hub", "og", function()_G.HohoVersion = "v3"
-loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
-end)
+
 
 Tab5Section:NewTextBox("my discord is c6_4", "TextboxInfo", function(txt)
 	print(txt)
