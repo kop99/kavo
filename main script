@@ -20,7 +20,7 @@ local Tab = Window:NewTab("others scripts")
 local Tab3Section = Tab:NewSection("Other games")
 local Tab = Window:NewTab("admins")
 local Tab4Section = Tab:NewSection("Troll Scripts")
-local Tab = Window:NewTab("Settings")
+local Tab = Window:NewTab("Settings And Info")
 local Tab5Section = Tab:NewSection("Settings")
 
 
@@ -644,3 +644,18 @@ end)
 Tab3Section:NewButton("HoHo Hub", "og", function()_G.HohoVersion = "v3"
 loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
 end)
+
+Tab5Section:NewTextBox("my discord is c6_4", "TextboxInfo", function(txt)
+	print(txt)
+end)
+
+Tab5Section:NewTextBox("THIS IS IN BETA", "TextboxInfo", function(txt)
+	print(txt)
+end)
+
+Tab5Section:NewTextBox("Nobody has this script expect me", "TextboxInfo", function(txt)
+	print(txt)
+end)
+
+
+
