@@ -1,3 +1,4 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/kop99/kavo/main/skid", true))()
 local Window = Library.CreateLib("my gui fr", "Synapse")
 
 -- Tabs
@@ -617,4 +618,7 @@ end)
 end)
 
 Tab2Section:NewButton("vape v4", "OP ASF", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+end)
+
+Tab2Section:NewButton("SkidPloit", "shitty", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/AlSploit/AlSploit/main/MainScript"))()
 end)
