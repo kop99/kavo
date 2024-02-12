@@ -1,13 +1,22 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/kop99/kavo/main/skid", true))()
 local Window = Library.CreateLib("my gui fr", "Synapse")
 
+local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
+local Notify = AkaliNotif.Notify;
+Notify({
+Description = "this was made by c6_4";
+Title = "graa";
+Duration = 15;
+});
+
+
 -- Tabs
 
 local Tab = Window:NewTab("dh")
 local Tab1Section = Tab:NewSection("Best Silent aim")
 local Tab = Window:NewTab("bedwars")
 local Tab2Section = Tab:NewSection("Do not use fly in da hood ")
-local Tab = Window:NewTab("others games")
+local Tab = Window:NewTab("others scripts")
 local Tab3Section = Tab:NewSection("Other games")
 local Tab = Window:NewTab("admins")
 local Tab4Section = Tab:NewSection("Troll Scripts")
@@ -626,6 +635,12 @@ end)
 Tab2Section:NewButton("SkidPloit", "shitty", function() loadstring(game:HttpGet("https://raw.githubusercontent.com/AlSploit/AlSploit/main/MainScript"))()
 end)
 
-Tab5Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.C, function()
+Tab5Section:NewKeybind("Press C to disable and enable", "KeybindInfo", Enum.KeyCode.C, function()
     Library:ToggleUI()
+end)
+
+Tab3Section:NewButton("keyboard", "og", function()loadstring(game:HttpGet("https://scriptblox.com/raw/Free-Owner-Admin-Abuse-Keyboard-Script-7798"))()
+end)
+Tab3Section:NewButton("HoHo Hub", "og", function()_G.HohoVersion = "v3"
+loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
 end)
