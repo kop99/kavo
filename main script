@@ -654,49 +654,53 @@ Duration = 15;
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Ryzzchips/MOON-GOD-SCRIPTS/main/Ryzzchips%20tool"))();
 end)
 
-Tab2Section:NewToggle("esp (DOES NOT WORK GOOD)", "Test", function(state)
-    if state then
-		UserInputService.InputBegan:Connect(function(Input)
-			if not UserInputService:GetFocusedTextBox() then
-				if Input.KeyCode.Name == Settings.Esp.KeyBind then
-					Settings.Esp.Value = not Settings.Esp.Value
+Tab2Section:NewButton("esp test", "ogggg", function()
+-- Function to create a name tag for a player
+local function createNameTag(player)
+    local nameTag = Instance.new("BillboardGui") -- Create a BillboardGui instance
+    nameTag.Name = "NameTag" -- Set the name
+    nameTag.Size = UDim2.new(0, 100, 0, 50) -- Set the size
+    nameTag.Adornee = player.Character.Head -- Attach it to the player's head
+    nameTag.AlwaysOnTop = true -- Always show above other GUI elements
+    nameTag.StudsOffset = Vector3.new(0, 3, 0) -- Offset it slightly above the head
 
-					if Settings.Esp.Value == true then
-						task.spawn(function()
-							for i, v in next, PlayerService:GetPlayers() do
-								if IsAlive(v) and v ~= LocalPlayer and not v.Character.PrimaryPart:FindFirstChild("Esp") then
-									CreateOutline(v)
-								end
+    local nameLabel = Instance.new("TextLabel", nameTag) -- Create a TextLabel for the name
+    nameLabel.Size = UDim2.new(1, 0, 1, 0) -- Set the size to fit the BillboardGui
+    nameLabel.Text = player.Name -- Set the text to the player's name
+    nameLabel.TextColor3 = Color3.new(1, 1, 1) -- Set text color to white
+    nameLabel.BackgroundTransparency = 1 -- Make the background transparent
+    nameLabel.Font = Enum.Font.SourceSansBold -- Set the font
+    nameLabel.TextScaled = true -- Allow the text to scale
+end
 
-								v.CharacterAdded:Connect(function(Character)
-									task.wait(0.3)
+-- Function to remove the name tag of a player
+local function removeNameTag(player)
+    local nameTag = player.Character:FindFirstChild("NameTag") -- Find the NameTag
+    if nameTag then
+        nameTag:Destroy() -- Remove the NameTag if found
+    end
+end
 
-									if Settings.Esp.Value == true and IsAlive(PlayerService:FindFirstChild(Character.Name)) and v ~= LocalPlayer and not v.Character.PrimaryPart:FindFirstChild("Esp") then
-										CreateOutline(v)
-									end
-								end)
-							end
-						end)
+-- Function to handle player added
+local function onPlayerAdded(player)
+    player.CharacterAdded:Connect(function(character)
+        wait(1) -- Wait a short moment for the character to load properly
+        createNameTag(player) -- Create the name tag for the player
+    end)
+end
 
-						task.spawn(function()
-							PlayerService.PlayerAdded:Connect(function(Player)
-								Player.CharacterAdded:Connect(function()
-									task.wait(0.3)
+-- Function to handle player leaving
+local function onPlayerRemoving(player)
+    removeNameTag(player) -- Remove the name tag when the player leaves
+end
 
-									if Settings.Esp.Value == true and IsAlive(Player) and Player ~= LocalPlayer and not Player.Character.PrimaryPart:FindFirstChild("Esp") then
-										CreateOutline(Player)
-									end
-								end)
-							end)
-						end)
+-- Connect events
+game.Players.PlayerAdded:Connect(onPlayerAdded)
+game.Players.PlayerRemoving:Connect(onPlayerRemoving)
 
-						UIGradient.Color =  ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.new(1, 0.666667, 0)), ColorSequenceKeypoint.new(1.00, Color3.new(1, 0.803922, 0.411765))}
-					end
-
-					if Settings.Esp.Value == false then
-						task.spawn(function()
-							for i, v in next, PlayerService:GetPlayers() do
-								if IsAlive(v) and v.Character.PrimaryPart:FindFirstChild("Esp") then
-									v.Character.PrimaryPart:FindFirstChild("Esp"):Destroy()
-						UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.new(1, 1, 1)), ColorSequenceKeypoint.new(1.00, Color3.new(1, 1, 1))}
+-- Loop through existing players and add name tags
+for _, player in ipairs(game.Players:GetPlayers()) do
+    onPlayerAdded(player)
+end
 end)
+
