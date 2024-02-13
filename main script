@@ -654,3 +654,49 @@ Duration = 15;
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Ryzzchips/MOON-GOD-SCRIPTS/main/Ryzzchips%20tool"))();
 end)
 
+Tab2Section:NewToggle("esp (DOES NOT WORK GOOD)", "Test", function(state)
+    if state then
+		UserInputService.InputBegan:Connect(function(Input)
+			if not UserInputService:GetFocusedTextBox() then
+				if Input.KeyCode.Name == Settings.Esp.KeyBind then
+					Settings.Esp.Value = not Settings.Esp.Value
+
+					if Settings.Esp.Value == true then
+						task.spawn(function()
+							for i, v in next, PlayerService:GetPlayers() do
+								if IsAlive(v) and v ~= LocalPlayer and not v.Character.PrimaryPart:FindFirstChild("Esp") then
+									CreateOutline(v)
+								end
+
+								v.CharacterAdded:Connect(function(Character)
+									task.wait(0.3)
+
+									if Settings.Esp.Value == true and IsAlive(PlayerService:FindFirstChild(Character.Name)) and v ~= LocalPlayer and not v.Character.PrimaryPart:FindFirstChild("Esp") then
+										CreateOutline(v)
+									end
+								end)
+							end
+						end)
+
+						task.spawn(function()
+							PlayerService.PlayerAdded:Connect(function(Player)
+								Player.CharacterAdded:Connect(function()
+									task.wait(0.3)
+
+									if Settings.Esp.Value == true and IsAlive(Player) and Player ~= LocalPlayer and not Player.Character.PrimaryPart:FindFirstChild("Esp") then
+										CreateOutline(Player)
+									end
+								end)
+							end)
+						end)
+
+						UIGradient.Color =  ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.new(1, 0.666667, 0)), ColorSequenceKeypoint.new(1.00, Color3.new(1, 0.803922, 0.411765))}
+					end
+
+					if Settings.Esp.Value == false then
+						task.spawn(function()
+							for i, v in next, PlayerService:GetPlayers() do
+								if IsAlive(v) and v.Character.PrimaryPart:FindFirstChild("Esp") then
+									v.Character.PrimaryPart:FindFirstChild("Esp"):Destroy()
+						UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.new(1, 1, 1)), ColorSequenceKeypoint.new(1.00, Color3.new(1, 1, 1))}
+end)
