@@ -654,53 +654,20 @@ Duration = 15;
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Ryzzchips/MOON-GOD-SCRIPTS/main/Ryzzchips%20tool"))();
 end)
 
-Tab2Section:NewButton("esp test", "ogggg", function()
--- Function to create a name tag for a player
-local function createNameTag(player)
-    local nameTag = Instance.new("BillboardGui") -- Create a BillboardGui instance
-    nameTag.Name = "NameTag" -- Set the name
-    nameTag.Size = UDim2.new(0, 100, 0, 50) -- Set the size
-    nameTag.Adornee = player.Character.Head -- Attach it to the player's head
-    nameTag.AlwaysOnTop = true -- Always show above other GUI elements
-    nameTag.StudsOffset = Vector3.new(0, 3, 0) -- Offset it slightly above the head
+Tab2Section:NewButton("instakill (patched pretty sure)", "ogggg", function()
+local mt = getrawmetatable(game)
+local backup = mt.__namecall
+if setreadonly then setreadonly(mt, false) else make_writeable(mt, true) end
 
-    local nameLabel = Instance.new("TextLabel", nameTag) -- Create a TextLabel for the name
-    nameLabel.Size = UDim2.new(1, 0, 1, 0) -- Set the size to fit the BillboardGui
-    nameLabel.Text = player.Name -- Set the text to the player's name
-    nameLabel.TextColor3 = Color3.new(1, 1, 1) -- Set text color to white
-    nameLabel.BackgroundTransparency = 1 -- Make the background transparent
-    nameLabel.Font = Enum.Font.SourceSansBold -- Set the font
-    nameLabel.TextScaled = true -- Allow the text to scale
+mt.__namecall = newcclosure(function(...)
+local method = getnamecallmethod()
+local args = {...}
+pcall(function()
+if method == "FireServer" or method == "InvokeServer" and args[2] and args[2].chargedAttack then
+args[2].chargedAttack.chargeRatio = 0/0
+return backup(unpack(args))
 end
-
--- Function to remove the name tag of a player
-local function removeNameTag(player)
-    local nameTag = player.Character:FindFirstChild("NameTag") -- Find the NameTag
-    if nameTag then
-        nameTag:Destroy() -- Remove the NameTag if found
-    end
-end
-
--- Function to handle player added
-local function onPlayerAdded(player)
-    player.CharacterAdded:Connect(function(character)
-        wait(1) -- Wait a short moment for the character to load properly
-        createNameTag(player) -- Create the name tag for the player
-    end)
-end
-
--- Function to handle player leaving
-local function onPlayerRemoving(player)
-    removeNameTag(player) -- Remove the name tag when the player leaves
-end
-
--- Connect events
-game.Players.PlayerAdded:Connect(onPlayerAdded)
-game.Players.PlayerRemoving:Connect(onPlayerRemoving)
-
--- Loop through existing players and add name tags
-for _, player in ipairs(game.Players:GetPlayers()) do
-    onPlayerAdded(player)
-end
+end)
+return backup(...)
 end)
 
