@@ -4,7 +4,7 @@ local Window = Library.CreateLib("my gui fr", "Synapse")
 local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
 local Notify = AkaliNotif.Notify;
 Notify({
-Description = "this was made by c6_4";
+Description = "this was made by c6_4";https://www.mediafire.com/file/yqirv7nhbp5gdpr/ArceusX_prod.ipa/file
 Title = "graa";
 Duration = 15;
 });
@@ -652,6 +652,10 @@ Duration = 15;
 });
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Ryzzchips/MOON-GOD-SCRIPTS/main/Ryzzchips%20tool"))();
+end)
+
+Tab1Section:NewButton("op lock", "ogggg", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/kop99/kavo/main/h8c"))()
 end)
 
 
