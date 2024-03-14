@@ -4,7 +4,7 @@ local Window = Library.CreateLib("my gui fr", "Synapse")
 local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
 local Notify = AkaliNotif.Notify;
 Notify({
-Description = "this was made by c6_4";https://www.mediafire.com/file/yqirv7nhbp5gdpr/ArceusX_prod.ipa/file
+Description = "this was made by c6_4";
 Title = "graa";
 Duration = 15;
 });
