@@ -654,8 +654,7 @@ Duration = 15;
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Ryzzchips/MOON-GOD-SCRIPTS/main/Ryzzchips%20tool"))();
 end)
 
-Tab1Section:NewButton("op lock", "ogggg", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/kop99/kavo/main/h8c"))()
+Tab1Section:NewButton("op lock", "ogggg", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/kop99/kavo/main/h8c"))()
 end)
 
 
