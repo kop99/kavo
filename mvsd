@@ -1,9 +1,9 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Murderes vs sherifs duel", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Window = OrionLib:MakeWindow({Name = "XenxWare V1", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
 OrionLib:MakeNotification({
-	Name = "Hey crdits to",
-	Content = "ilmx + jn better then you",
+	Name = "XenxWare",
+	Content = "ontop",
 	Image = "rbxassetid://4483345998",
 	Time = 8
 })
