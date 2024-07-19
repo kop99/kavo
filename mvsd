@@ -83,14 +83,14 @@ speedButton.MouseButton1Click:Connect(unleashYourPower)
   	end    
 })
 Tab:AddButton({
-	Name = "inf yile",
+	Name = "Infinite Yield",
 	Callback = function()
       	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
      	print("button pressed")
   	end    
 })
 local Section = Tab:AddSection({
-	Name = "made by: ilmx"
+	Name = "Created By: 🫵"
 })
 
  OrionLib:Init()
